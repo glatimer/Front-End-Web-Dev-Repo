@@ -13,7 +13,7 @@ function isPositiveNumber(num) {
 
 // Reverse a number
 function reverseNumber(num) {
-  let result = "";
+  const result = "";
   for (i = String(num).length - 1; i >= 0; --i) {
     result = result + num[i];
   }
