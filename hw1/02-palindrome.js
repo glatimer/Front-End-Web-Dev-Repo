@@ -5,9 +5,10 @@ const output = document.getElementById("result"); // output the result to HTML
 
 // Check for positive number
 function isPositiveNumber(num) {
-  if (num < 0) {
+  if (Number(num) < 0) {
     return false;
   }
+  return true;
 }
 
 // Reverse a number
