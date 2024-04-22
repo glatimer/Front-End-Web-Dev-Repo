@@ -1,3 +1,12 @@
-main {
-  background-color: cornflowerblue;
+body {
+  background-color: rgb(57, 119, 234);
+}
+
+#window {
+  display: flexbox;
+  align-items: center;
+  background-color: white;
+  margin: 20%;
+  padding: 1%;
+  border-radius: 5px;
 }
