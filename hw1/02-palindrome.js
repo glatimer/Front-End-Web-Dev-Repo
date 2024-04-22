@@ -1,7 +1,7 @@
 // Declarations
 const elem = document.querySelector("input");
 elem.addEventListener("change", handleInput); // get input on enter
-const output = document.getElementById("result"); // output the result to HTML
+let output = document.getElementById("result"); // output the result to HTML
 
 // Check for positive number
 function isPositiveNumber(num) {
@@ -13,9 +13,9 @@ function isPositiveNumber(num) {
 
 // Reverse a number
 function reverseNumber(num) {
-  const result = "";
+  let result = "";
   for (i = String(num).length - 1; i >= 0; --i) {
-    result = result + num[i];
+    result += num[i];
   }
   return result;
 }
@@ -25,8 +25,9 @@ function handleInput() {
   const userInput = elem.value;
 
   // Check for a positive number
-  if (isPositiveNumber(userInput) === false) {
-    window.alert("Please, enter a positive number.");
+  if (!isPositiveNumber(userInput)) {
+    result.textContent = "Please, enter a positive number.";
+    output.style.color = "red";
     return;
   }
 
@@ -35,8 +36,10 @@ function handleInput() {
 
   // Compare the reverse with original for result
   if (userInput === reverse) {
-    output.innerHTML = "Yes. " + userInput + " is a palindrome.";
+    output.textContent = "Yes. This is a palindrome!";
+    output.style.color = "green";
   } else {
-    output.innerHTML = "No. Try again.";
+    output.textContent = "No. Try again.";
+    output.style.color = "red";
   }
 }
