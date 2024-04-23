@@ -17,16 +17,16 @@
     grid-row: 5;
 15. grid-column: span 4/6;
     grid-row: 1/6;
-16.
-17.
-18.
-19.
-20.
-21.
-22.
-23.
-24.
+16. grid-area: 1/2/4/6;
+17. grid-area: 2/3/5/6;
+18. order: 3;
+19. order: -1;
+20. grid-template-columns: 50% 50%;
+21. grid-template-columns: repeat(8, 12.5%);
+22. grid-template-columns: 100px 3em 40%;
+23. grid-template-columns: 1fr 5fr;
+24. grid-template-columns: 50px fr 50px;
 25.
 26.
-27.
+27. grid-template: 60% / 200px;
 28.
