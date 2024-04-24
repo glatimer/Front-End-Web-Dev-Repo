@@ -1,4 +1,4 @@
-const userInput = document.querySelector(".getData");
+const userInput = document.querySelector("#getData");
 userInput.addEventListener("click", handleClick); // grab data on input click
 
 // Search character array for a match and return the results
@@ -20,25 +20,37 @@ function handleClick() {
 // Build a character object
 function createCharacterComponent(characterData) {
   const container = document.createElement("section");
-  let name = document.createElement("div");
-  let birthYear = document.createElement("div");
+  container.classList.add("card", "mb-3");
 
+  const cardBody = document.createElement("div");
+  cardBody.classList.add("card-body");
+
+  let name = document.createElement("h3");
+  name.classList.add("card-title");
   name.textContent = characterData.name;
+
+  let birthYear = document.createElement("p");
+  birthYear.classList.add("card-text");
   birthYear.textContent = `Birth year: ${characterData.birth_year}`;
 
-  container.append(name);
-  container.append(birthYear);
+  cardBody.appendChild(name);
+  cardBody.appendChild(birthYear);
+
+  container.appendChild(cardBody);
   return container;
 }
 
 // Display results to DOM
 function displayCharacterComponents(resultsArray) {
   let app = document.getElementById("results");
-  // clear previous results
+
+  // Check for null
   if (!resultsArray || resultsArray.length === 0) {
     console.error("The array is empty.");
     return;
   }
+
+  // Display results
   resultsArray.forEach((element) => {
     console.log(element.name, element.birth_year);
     const charComponent = createCharacterComponent(element);
