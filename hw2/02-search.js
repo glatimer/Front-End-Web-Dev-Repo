@@ -35,7 +35,6 @@ function createCharacterComponent(characterData) {
 
   cardBody.appendChild(name);
   cardBody.appendChild(birthYear);
-
   container.appendChild(cardBody);
   return container;
 }
