@@ -9,7 +9,7 @@ let intervalID;
 
 // Create an array of colors to select from
 const colors = [
-  "darkred",
+  "lightcoral",
   "cadetblue",
   "darkolivegreen",
   "darkmagenta",
@@ -29,10 +29,11 @@ function changeBackground() {
   console.log(`rand num = ${rand}`, `color = ${colors[rand].valueOf()}`);
 
   // Update the DOM background
-  const background = document.createElement("body");
-  document.getElementById("randomBackground");
-  background.style.backgroundColor = colors[rand];
-  //   background.classList.replace("start", "stop");
+  document.body.style.backgroundColor = colors[rand];
+  //   const background = document.createElement("body");
+  //   document.getElementById("randomBackground");
+  //   background.style.backgroundColor = colors[rand];
+  //   return background;
 }
 
 // start button is clicked
@@ -44,13 +45,15 @@ function startInterval(seconds) {
 
 function handleClick() {
   const seconds = parseInt(userInput.value);
+  const btn = document.createElement("button");
+
   if (intervalID) {
     clearInterval(intervalID);
     intervalID = null;
-    // button.textContent("Start");
+    btn.textContent = "Start";
   } else {
     startInterval(seconds);
-    // button.textContent("Stop");
+    btn.textContent = "Stop";
   }
 }
 
