@@ -1,7 +1,7 @@
 const button = document.querySelector("#start"); // start button click
 button.addEventListener("click", handleClick);
 
-const userInput = document.querySelector("#num"); // seconds num
+const userInput = document.querySelector("#num"); // num seconds
 window.addEventListener("load", handleLoad);
 
 // Setup
@@ -32,7 +32,7 @@ function changeBackground() {
   document.body.style.backgroundColor = colors[rand];
 }
 
-// Start changing background on intervals
+// Start intervals
 function startInterval(seconds) {
   if (!intervalID) {
     intervalID = setInterval(changeBackground, seconds * 1000); // convert to milliseconds
@@ -56,6 +56,3 @@ function handleClick() {
     btn.value = "Stop";
   }
 }
-
-// Reload every interval of seconds changing the background color for each reload
-function handleLoad() {}
