@@ -1,7 +1,7 @@
 const button = document.querySelector("#start"); // start button click
 button.addEventListener("click", handleClick);
 
-const userInput = document.querySelector("#num"); // how many seconds inputted
+const userInput = document.querySelector("#num"); // seconds num
 window.addEventListener("load", handleLoad);
 
 // Setup
@@ -30,30 +30,30 @@ function changeBackground() {
 
   // Update the DOM background
   document.body.style.backgroundColor = colors[rand];
-  //   const background = document.createElement("body");
-  //   document.getElementById("randomBackground");
-  //   background.style.backgroundColor = colors[rand];
-  //   return background;
 }
 
-// start button is clicked
+// Start changing background on intervals
 function startInterval(seconds) {
   if (!intervalID) {
     intervalID = setInterval(changeBackground, seconds * 1000); // convert to milliseconds
   }
 }
 
+// Background changes on intervals and button adapts upon click
 function handleClick() {
   const seconds = parseInt(userInput.value);
-  const btn = document.createElement("button");
+  const btn = document.getElementById("start");
+  btn.classList.add("btn-primary");
 
   if (intervalID) {
     clearInterval(intervalID);
     intervalID = null;
-    btn.textContent = "Start";
+    btn.value = "Start";
+    btn.classList.remove("btn-danger");
   } else {
     startInterval(seconds);
-    btn.textContent = "Stop";
+    btn.classList.add("btn-danger");
+    btn.value = "Stop";
   }
 }
 
