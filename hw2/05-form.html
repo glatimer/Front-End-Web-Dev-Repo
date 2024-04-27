@@ -15,7 +15,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
         <main style="margin-top: 5em; margin-bottom: 10em">
-          <form action="05-form.html" style="background-color: white">
+          <form id="myForm" style="background-color: white; border-radius: 2px">
             <h1 style="text-align: center; padding-top: 1em">
               Exercise 05 - Form
             </h1>
@@ -26,6 +26,7 @@
                 >
                 <br />
                 <input
+                  autocomplete="family-name"
                   type="text"
                   class="form-control"
                   name="name"
@@ -37,6 +38,7 @@
                 >
                 <br />
                 <input
+                  autocomplete="email"
                   type="email"
                   class="form-control"
                   name="email"
@@ -57,12 +59,12 @@
                 id="registration"
               >
                 <option selected>Choose an Option</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="yes">Registered</option>
+                <option value="no">Not Registered</option>
               </select>
               <fieldset style="margin-top: 2em">
                 <legend style="font-size: 17px">
-                  <label for="form-label" style="font-weight: bold"
+                  <label for="questions" style="font-weight: bold"
                     >Have you taken any of the following courses?</label
                   >
                   <div class="form-check">
@@ -93,24 +95,32 @@
                   </div>
                 </legend>
               </fieldset>
-              <label for="name" class="form-label" style="font-weight: bold"
+              <label
+                for="questions"
+                class="form-label"
+                style="font-weight: bold"
                 >Anything else?</label
               >
               <br />
-              <input
-                type="text"
+              <textarea
                 class="form-control"
-                name="name"
-                id="name"
-                style="width: 100%; height: 6em"
-              />
+                name="questions"
+                id="questions"
+                cols="30"
+                rows="5"
+                style="width: 99%; height: 6em"
+              >
+              </textarea>
               <button
+                type="submit"
+                id="submit"
                 class="btn-primary"
                 style="width: 49%; margin-top: 1em; border-radius: 3px"
               >
                 Submit
               </button>
               <button
+                id="reset"
                 class="btn-secondary"
                 style="width: 50%; margin-top: 1em; border-radius: 3px"
               >
@@ -118,6 +128,7 @@
               </button>
             </section>
           </form>
+          <!-- <script src="form"></script> -->
         </main>
       </div>
     </div>
