@@ -20,37 +20,13 @@ function handleSubmit(event) {
   console.log(`Full Stack: ${fullStack}`);
   const additional = document.getElementById("questions").value.trim();
   console.log(`Other Comments: ${additional}`);
+
+  // On submit open the modal
+  const myModal = document.querySelector(".modal");
+  const modalContent = myModal.querySelector(".modal-content");
+  modalContent.textContent = `Name: ${dataName}`;
+  myModal.style.display = "block";
 }
-
-// Connect modal
-const myModal = document.querySelector(".modal");
-myModal.addEventListener("shown.bs.modal", function () {
-  document.getElementById("name").focus();
-});
-
-// Extract form information
-// const name = document.createElement("p");
-// const name = form.elements.name.type;
-// console.log(name);
-
-// Create Modal
-//   const modal = document.getElementById("modal-fade");
-//   const btn = document.getElementById("trigger-modal");
-//   const btnClose = document.getElementsByClassName("close");
-
-//   btn.onclick = function () {
-//     modal.style.display = "block";
-//   };
-
-//   btnClose.onclick = function () {
-//     modal.style.display = "none";
-//   };
-
-//   window.onclick = function (event) {
-//     if (event.target == modal) {
-//       modal.style.display = "none";
-//     }
-//   };
 
 /* RESOURCES
  * input autocomplete => https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values
