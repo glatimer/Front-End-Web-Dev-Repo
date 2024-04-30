@@ -12,15 +12,21 @@ function handleSubmit(event) {
   console.log(`Data Email: ${dataEmail}`);
   const dataRegistration = document.getElementById("registration").value;
   console.log(`Registered: ${dataRegistration}`);
-  const pLang = document.getElementById("pLang");
+  const pLang = document.getElementById("pLang").checked;
   console.log(`Programming Languages: ${pLang}`);
-  const OS = document.getElementById("os");
+  const OS = document.getElementById("os").checked;
   console.log(`Operating Systems: ${OS}`);
-  const fullStack = document.getElementById("full-stack");
+  const fullStack = document.getElementById("full-stack").checked;
   console.log(`Full Stack: ${fullStack}`);
-  const additional = document.getElementById("questions");
+  const additional = document.getElementById("questions").value.trim();
   console.log(`Other Comments: ${additional}`);
 }
+
+// Connect modal
+const myModal = document.querySelector(".modal");
+myModal.addEventListener("shown.bs.modal", function () {
+  document.getElementById("name").focus();
+});
 
 // Extract form information
 // const name = document.createElement("p");
