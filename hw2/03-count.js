@@ -8,7 +8,7 @@ function handleKeyDown(event) {
   // Variable containing searchable content
   const textBody = document.querySelector(".card-text");
 
-  const regex = new RegExp(word, "g"); // g = global search
+  const regex = new RegExp(word, "gi"); // g = global search
 
   // Create a highlighted word to replace the match
   const highlightedWord = document.createElement("span");

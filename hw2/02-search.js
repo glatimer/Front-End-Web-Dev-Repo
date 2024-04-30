@@ -41,7 +41,7 @@ function createCharacterComponent(characterData) {
 
 // Display results to DOM
 function displayCharacterComponents(resultsArray) {
-  let app = document.getElementById("results");
+  const display = document.getElementById("results");
 
   // Check for null
   if (!resultsArray || resultsArray.length === 0) {
@@ -53,6 +53,6 @@ function displayCharacterComponents(resultsArray) {
   resultsArray.forEach((element) => {
     console.log(element.name, element.birth_year);
     const charComponent = createCharacterComponent(element);
-    app.appendChild(charComponent);
+    display.appendChild(charComponent);
   });
 }
