@@ -2,7 +2,6 @@ const button = document.querySelector("#start"); // start button click
 button.addEventListener("click", handleClick);
 
 const userInput = document.querySelector("#num"); // num seconds
-window.addEventListener("load", handleLoad);
 
 // Setup
 let intervalID;
