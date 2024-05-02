@@ -2,32 +2,113 @@ const form = document.querySelector("form"); // Get form
 form.addEventListener("submit", handleSubmit); // Get input on submit
 
 // Extract form information and output in a modal
+// Function to handle form submission
 function handleSubmit(event) {
   event.preventDefault();
 
-  // Extract info from form
+  // Extract form information
   const dataName = document.getElementById("name").value.trim();
-  console.log(`Data Name: ${dataName}`);
   const dataEmail = document.getElementById("email").value.trim();
-  console.log(`Data Email: ${dataEmail}`);
   const dataRegistration = document.getElementById("registration").value;
-  console.log(`Registered: ${dataRegistration}`);
   const pLang = document.getElementById("pLang").checked;
-  console.log(`Programming Languages: ${pLang}`);
   const OS = document.getElementById("os").checked;
-  console.log(`Operating Systems: ${OS}`);
   const fullStack = document.getElementById("full-stack").checked;
-  console.log(`Full Stack: ${fullStack}`);
   const additional = document.getElementById("questions").value.trim();
-  console.log(`Other Comments: ${additional}`);
 
-  // On submit open the modal
-  const myModal = document.querySelector(".modal");
-  const modalContent = myModal.querySelector(".modal-content");
-  modalContent.textContent = `Name: ${dataName}`;
-  myModal.style.display = "block";
+  // Return form data as an object
+  return {
+    dataName,
+    dataEmail,
+    dataRegistration,
+    pLang,
+    OS,
+    fullStack,
+    additional,
+  };
+}
+
+// Function to display modal with form data
+function displayModal(formData) {
+  const {
+    dataName,
+    dataEmail,
+    dataRegistration,
+    pLang,
+    OS,
+    fullStack,
+    additional,
+  } = formData;
+
+  const modalBody = document.querySelector("#return-content");
+  modalBody.textContent = `Full Name: ${dataName}
+  Email: ${dataEmail}
+  Registered: ${dataRegistration}
+  Classes Taken:
+    Programming Languages: ${pLang}
+    Operating Systems: ${OS}
+    Full Stack Web Development: ${fullStack}
+  Other Comments:
+    ${additional}`;
+
+  const myModal = new bootstrap.Modal(document.querySelector("#return-modal"));
+  myModal.show();
+}
+
+// Submit button event
+const submitButton = document.querySelector("#trigger-modal");
+submitButton.addEventListener("click", function (event) {
+  const formData = handleSubmit(event);
+  displayModal(formData);
+});
+
+// Reset button event
+const resetButton = document.querySelector("#trigger-reset");
+resetButton.addEventListener("click", function (event) {
+  // Clear form fields
+  document.getElementById("myForm").reset();
+});
+
+// Build modal
+function buildModal(dataName) {
+  const modal = document.createElement("div");
+  modal.classList.add("modal", "fade");
+  modal.setAttribute("id", "myModal");
+
+  const modalDialog = document.createElement("div");
+  modalDialog.classList.add("modal-dialog");
+
+  const modalContent = document.createElement("div");
+  modalContent.classList.add("modal-content");
+
+  const modalHeader = document.createElement("div");
+  modalHeader.classList.add("modal-header");
+
+  const modalTitle = document.createElement("h1");
+  modalTitle.classList.add("modal-title");
+  modalTitle.textContent = `Modal Title`;
+
+  const btnClose = document.createElement("button");
+  btnClose.classList.add("btn-close");
+  btnClose.setAttribute("type", "button");
+  btnClose.setAttribute("data-bs-dismiss", "modal");
+  btnClose.setAttribute("aria-label", "Close");
+
+  const modalBody = document.createElement("div");
+  modalBody.classList.add("modal-body");
+  modalBody.textContent = `Full Name: ${dataName}`;
+
+  modalHeader.appendChild(modalTitle);
+  modalHeader.appendChild(btnClose);
+
+  modalContent.appendChild(modalHeader);
+  modalContent.appendChild(modalBody);
+
+  modalDialog.appendChild(modalContent);
+  modal.appendChild(modalDialog);
+  return modal;
 }
 
 /* RESOURCES
  * input autocomplete => https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/autocomplete#values
+ * textarea => https://mdbootstrap.com/docs/standard/forms/input-fields/
  */
