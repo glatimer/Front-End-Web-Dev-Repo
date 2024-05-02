@@ -33,7 +33,7 @@
                   autocomplete="on"
                   type="text"
                   class="form-control"
-                  name="name"
+                  name="Name"
                   id="name"
                   style="width: 100%"
                 />
@@ -45,7 +45,7 @@
                   autocomplete="email"
                   type="email"
                   class="form-control"
-                  name="email"
+                  name="Email"
                   id="email"
                   style="width: 100%"
                 />
@@ -59,7 +59,7 @@
               <select
                 class="form-select"
                 aria-label="Registration Status"
-                name="registration"
+                name="Registration Status"
                 id="registration"
               >
                 <option selected>Choose an Option</option>
@@ -76,7 +76,7 @@
                       type="checkbox"
                       class="form-check-input"
                       id="pLang"
-                      name="pLang"
+                      name="Programming Languages"
                     />
                     <label class="form-check-label" for="pLang"
                       >Programming Languages</label
@@ -87,7 +87,7 @@
                       type="checkbox"
                       class="form-check-input"
                       id="os"
-                      name="os"
+                      name="Operating Systems"
                     />
                     <label class="form-check-label" for="os"
                       >Operating Systems</label
@@ -98,7 +98,7 @@
                       type="checkbox"
                       class="form-check-input"
                       id="full-stack"
-                      name="full-stack"
+                      name="Full Stack Web Development"
                     />
                     <label class="form-check-label" for="full-stack"
                       >Full Stack Web Development</label
@@ -116,7 +116,7 @@
               <div class="form-outline" data-mdb-input-init>
                 <textarea
                   class="form-control"
-                  name="questions"
+                  name="Comments"
                   id="questions"
                   cols="30"
                   rows="5"
@@ -152,7 +152,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title">Submit Form</h1>
+            <h1 class="modal-title">Is this correct?</h1>
             <button
               type="button"
               class="btn-close"
@@ -160,9 +160,13 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body" id="return-content">
-            <!-- <p id="modal-output"></p> -->
-          </div>
+          <section style="padding: 2em; text-align: left; font-size: 17px">
+            <div
+              class="modal-body"
+              id="return-content"
+              style="font-weight: bolder"
+            ></div>
+          </section>
           <div class="modal-footer">
             <button
               type="button"
